@@ -1,0 +1,15 @@
+<div class="end-game-container">
+  <h1>Obrigado por jogar!</h1>
+  <p>{{ gameService.getFinalOutcome() }}</p>
+  <p>Estas foram as escolhas que moldaram o destino de Leo:</p>
+
+  <ul>
+    <li *ngFor="let choice of history">
+      <strong>Caminho:</strong> {{ choice.nextPath }}<br />
+      <strong>Escolha:</strong> {{ choice.text }}<br />
+      <strong>Consequência:</strong> {{ choice.consequence }}
+    </li>
+  </ul>
+
+  <button (click)="this.router.navigate(['/choose-path'])">Reiniciar Jogo</button>
+</div>

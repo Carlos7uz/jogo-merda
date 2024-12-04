@@ -1,0 +1,6 @@
+<h2>Fim do Jogo</h2>
+<ul>
+  <li *ngFor="let choice of gameService.getHistory()">
+    Escolha: {{ choice.text }} - Decisão: {{ choice.consequence }}
+  </li>
+</ul>

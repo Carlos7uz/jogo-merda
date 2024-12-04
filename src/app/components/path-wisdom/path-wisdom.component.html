@@ -1,0 +1,17 @@
+<div *ngIf="currentPath">
+  <h2>{{ currentPath.title }}</h2>
+  <p>{{ currentPath.description }}</p>
+
+  <div *ngFor="let choice of currentPath.choices">
+    <button
+
+    (click)="onChoiceSelected(choice.nextPath)">
+      {{ choice.text }}</button>
+
+  </div>
+</div>
+
+<div *ngIf="!currentPath">
+  <h2>Fim do Jogo</h2>
+  <button (click)="this.router.navigate(['/choose-path'])">Reiniciar Jogo</button>
+</div>

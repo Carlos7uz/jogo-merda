@@ -1,0 +1,38 @@
+<div class="choose-path" *ngIf="!currentPathData">
+  <h2>Leo acorda e se depara com uma dungeon</h2>
+  <h3>
+    Agora ele precisa escolher seu caminho para voltar ao reino dos anões.
+    Existem três caminhos ao seu redor, apos uma breve analise ele precisa tomar uma decisão.
+  </h3>
+  <div>
+    <h4>Uma rachadura suspeita em uma parte fina da parede</h4>
+    <button (click)="startGame('path-wisdom')">Escavar a parede</button>
+  </div>
+  <div>
+    <h4>O corredor em que ele caiu</h4>
+    <button (click)="startGame('path-survival')">Seguir andando</button>
+  </div>
+  <div>
+    <h4>Uma especie de portal no chão</h4>
+    <button (click)="startGame('path-temptation')">Pular no portal</button>
+  </div>
+</div>
+
+<div *ngIf="currentPathData">
+  <h2>{{ currentPathData.title }}</h2>
+  <p>{{ currentPathData.description }}</p>
+
+  <div *ngFor="let choice of currentPathData.choices">
+    <button (click)="onChoiceSelected(choice)">{{ choice.text }}</button>
+  </div>
+</div>
+
+
+<!-- <div *ngIf="!currentPathData?.choices?.length">
+  <h2>Fim do Jogo</h2>
+  <ul>
+    <li *ngFor="let choice of gameService.getHistory()">
+      Caminho: {{ choice.text }} - Consequência: {{ choice.consequence }}
+    </li>
+  </ul>
+</div> -->
